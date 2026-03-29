@@ -29,14 +29,18 @@ while game:
         if keys[K_ESCAPE]:
             game=False 
     if keys[K_s]:
-        rocket_left.rect.y += 10
+        if rocket_left.rect.y <= 397:
+            rocket_left.rect.y += 10
+
     if keys[K_w]:
-        rocket_left.rect.y -= 10
+        if rocket_left.rect.y >= 0:
+            rocket_left.rect.y -= 10
     if keys[K_UP]:
         if rocket_right.rect.y >= 0:
             rocket_right.rect.y -= 10 
     if keys[K_DOWN]:
-        rocket_right.rect.y += 10
+        if rocket_right.rect.y <= 397:
+            rocket_right.rect.y += 10
     window.blit(background, (0,0))
     ball.reset()
     rocket_left.reset()
